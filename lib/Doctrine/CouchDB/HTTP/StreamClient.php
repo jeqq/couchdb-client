@@ -57,6 +57,10 @@ class StreamClient extends AbstractHTTPClient
         $data = null,
         array $headers = array()
     ) {
+        if ($this->options['path']) {
+            $path = '/' . $this->options['path'] . $path;
+        }
+
         $this->checkConnection($method, $path, $data, $headers);
         return $this->httpFilePointer;
     }

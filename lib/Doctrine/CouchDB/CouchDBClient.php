@@ -653,13 +653,15 @@ class CouchDBClient
         }
         $path = '/' . $this->databaseName . '/_changes';
         $connectionOptions = $this->getHttpClient()->getOptions();
+        print_r('foo');
         $streamClient = new StreamClient(
             $connectionOptions['host'],
             $connectionOptions['port'],
             $connectionOptions['username'],
             $connectionOptions['password'],
             $connectionOptions['ip'],
-            $connectionOptions['ssl']
+            $connectionOptions['ssl'],
+            $connectionOptions['path']
         );
 
         foreach ($params as $key => $value) {
