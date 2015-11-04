@@ -421,6 +421,7 @@ class MultipartParserAndSender
         }
         // Handle some response state as special cases
         switch ($headers['status']) {
+            case 404:
             case 301:
             case 302:
             case 303:
