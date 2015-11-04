@@ -55,6 +55,10 @@ class SocketClient extends AbstractHTTPClient
         $data = null,
         array $headers = array()
     ) {
+        if ($this->options['path']) {
+            $path = '/' . $this->options['path'] . $path;
+        }
+
         $this->checkConnection();
         $stringHeader = $this->buildRequest($method, $path, $data, $headers);
         // Send the build request to the server
